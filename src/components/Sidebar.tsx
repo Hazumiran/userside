@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, ElementType } from 'react';
 import { Box, Flex, IconButton, Text, VStack } from '@chakra-ui/react';
 import { FiMenu, FiHome, FiSettings } from 'react-icons/fi';
 
@@ -19,8 +19,8 @@ const Sidebar = () => {
       color="white"
       transition="width 0.3s"
     >
-      <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
+      <Flex h="16" alignItems="center" mx="4" justifyContent="space-between">
+        <Text fontSize="xl" fontFamily="monospace" fontWeight="bold">
           {isOpen && 'Admin'}
         </Text>
         <IconButton
@@ -29,7 +29,7 @@ const Sidebar = () => {
           onClick={handleToggle}
         />
       </Flex>
-      <VStack as="nav" spacing="4" align="stretch">
+      <VStack as="nav" spacing={2} align="stretch">
         <NavItem isOpen={isOpen} icon={FiHome} title="Dashboard" />
         <NavItem isOpen={isOpen} icon={FiSettings} title="Settings" />
       </VStack>
@@ -37,13 +37,19 @@ const Sidebar = () => {
   );
 };
 
-const NavItem = ({ icon, title, isOpen }) => {
+interface NavItemProps {
+    icon: ElementType;
+    title: string;
+    isOpen: boolean;
+}
+
+const NavItem = ({ icon, title, isOpen }: NavItemProps) => {
     const Icon = icon
   return (
     <Flex
       align="center"
-      p="4"
-      mx="4"
+      p="3"
+      mx="2"
       borderRadius="lg"
       role="group"
       cursor="pointer"
@@ -52,9 +58,9 @@ const NavItem = ({ icon, title, isOpen }) => {
         color: 'white',
       }}
     >
-      {Icon && <Icon size={24} />}
+      {Icon && <Icon size={20} />}
       {isOpen && (
-        <Text ml="4" transition="opacity 0.3s">
+        <Text ml="3" fontSize="sm" transition="opacity 0.3s">
           {title}
         </Text>
       )}
@@ -63,4 +69,3 @@ const NavItem = ({ icon, title, isOpen }) => {
 };
 
 export default Sidebar;
-
