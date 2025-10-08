@@ -1,16 +1,18 @@
-import { Flex, IconButton, Menu, MenuButton, MenuList, MenuItem, Avatar } from '@chakra-ui/react';
-import { FiSun, FiMoon } from 'react-icons/fi';
+import { Flex, IconButton, Menu, MenuButton, MenuList, MenuItem, Avatar, useBreakpointValue } from '@chakra-ui/react';
+import { FiSun, FiMoon, FiMenu } from 'react-icons/fi';
 import { useColorMode, useColorModeValue } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
 interface NavbarProps {
+  onToggleSidebar: () => void;
   isSidebarOpen: boolean;
 }
 
-const Navbar = ({ isSidebarOpen }: NavbarProps) => {
+const Navbar = ({ onToggleSidebar, isSidebarOpen }: NavbarProps) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const bgColor = useColorModeValue('rgba(255, 255, 255, 0.8)', 'rgba(26, 32, 44, 0.8)');
+  const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
     <Flex
@@ -24,7 +26,19 @@ const Navbar = ({ isSidebarOpen }: NavbarProps) => {
       backdropFilter="blur(10px)" // Glassmorphism effect
       zIndex={10}
     >
-      {!isSidebarOpen ? <Logo /> : <div />}
+      <Flex align="center">
+        {isMobile && (
+          <IconButton
+            aria-label="Toggle Menu"
+            icon={<FiMenu />}
+            onClick={onToggleSidebar}
+            variant="ghost"
+            mr="4"
+          />
+        )}
+        {!isSidebarOpen && <Logo />}
+      </Flex>
+
       <Flex align="center">
         <IconButton
           aria-label="Toggle dark mode"

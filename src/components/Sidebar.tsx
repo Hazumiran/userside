@@ -1,5 +1,15 @@
-import { type ElementType } from 'react';
-import { Box, Flex, IconButton, Text, VStack } from '@chakra-ui/react';
+import type { ElementType } from 'react';
+import {
+  Box,
+  Flex,
+  IconButton,
+  Text,
+  VStack,
+  Drawer,
+  DrawerContent,
+  DrawerOverlay,
+  useDisclosure,
+} from '@chakra-ui/react';
 import { FiMenu, FiHome, FiSettings, FiUser } from 'react-icons/fi';
 import { useColorModeValue } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
@@ -8,36 +18,27 @@ import Logo from './Logo';
 interface SidebarProps {
   isOpen: boolean;
   onToggle: () => void;
+  isMobile?: boolean;
 }
 
-const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
-  const bgColor = useColorModeValue('rgba(255, 255, 255, 0.8)', 'rgba(26, 32, 44, 0.8)');
-  const borderColor = useColorModeValue('gray.200', 'gray.700');
+const Sidebar = ({ isOpen, onToggle, isMobile }: SidebarProps) => {
+  const { isOpen: isDrawerOpen, onOpen, onClose } = useDisclosure();
 
-  return (
+  const sidebarContent = (
     <Box
       as="aside"
       w={isOpen ? '200px' : '70px'}
       h="100vh"
-      bg={bgColor}
+      bg={useColorModeValue('rgba(255, 255, 255, 0.8)', 'rgba(26, 32, 44, 0.8)')}
       color="inherit"
-      backdropFilter="blur(10px)" // Glassmorphism effect
+      backdropFilter="blur(10px)"
       transition="width 0.3s"
-      position="fixed"
-      left="0"
-      top="0"
-      zIndex={20}
       borderRight="1px"
-      borderColor={borderColor}
+      borderColor={useColorModeValue('gray.200', 'gray.700')}
     >
       <Flex h="16" alignItems="center" mx="4" justifyContent="space-between">
         {isOpen && <Logo />}
-        <IconButton
-          aria-label="Toggle Menu"
-          icon={<FiMenu />}
-          onClick={onToggle}
-          variant="ghost"
-        />
+        <IconButton aria-label="Toggle Menu" icon={<FiMenu />} onClick={onToggle} variant="ghost" />
       </Flex>
       <nav>
         <VStack gap="2" align="stretch">
@@ -48,6 +49,28 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
       </nav>
     </Box>
   );
+
+  if (isMobile) {
+    return (
+      <>
+        <IconButton
+          aria-label="Open Menu"
+          icon={<FiMenu />}          onClick={onOpen}
+          variant="ghost"
+          position="fixed"
+          top="4"
+          left="4"
+          zIndex="20"
+        />
+        <Drawer isOpen={isDrawerOpen} placement="left" onClose={onClose}>
+          <DrawerOverlay />
+          <DrawerContent>{sidebarContent}</DrawerContent>
+        </Drawer>
+      </>
+    );
+  }
+
+  return sidebarContent;
 };
 
 interface NavItemProps {
