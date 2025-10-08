@@ -61,7 +61,7 @@ const Inventory = () => {
       category: '',
       location: '',
       condition: 'Baik',
-      stock: { total: 0, available: 0 }
+      stock: { total: 0, available: 0, reserved: 0 }
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -70,7 +70,7 @@ const Inventory = () => {
         const total = parseInt(value, 10) || 0;
         setNewItem(prev => ({ 
             ...prev, 
-            stock: { total: total, available: total } // Assuming all new stock is available
+            stock: { ...prev.stock, total: total, available: total } // Assuming all new stock is available
         }));
     } else {
         setNewItem(prev => ({ ...prev, [name]: value }));
@@ -78,7 +78,8 @@ const Inventory = () => {
   };
 
   const handleAddItem = () => {
-    const newId = `ITM-00${inventory.length + 1}`; // Simple ID generation
+    // Fix: Generate a numeric ID to match the data structure.
+    const newId = inventory.length > 0 ? Math.max(...inventory.map(item => item.id)) + 1 : 1;
     setInventory(prev => [...prev, { id: newId, ...newItem }]);
     onClose();
     // Reset form
@@ -88,7 +89,7 @@ const Inventory = () => {
         category: '',
         location: '',
         condition: 'Baik',
-        stock: { total: 0, available: 0 }
+        stock: { total: 0, available: 0, reserved: 0 }
     });
   };
 
