@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { FiMenu, FiHome, FiSettings, FiUser } from 'react-icons/fi';
 import { useColorModeValue } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 
 interface SidebarProps {
@@ -55,7 +55,8 @@ const Sidebar = ({ isOpen, onToggle, isMobile }: SidebarProps) => {
       <>
         <IconButton
           aria-label="Open Menu"
-          icon={<FiMenu />}          onClick={onOpen}
+          icon={<FiMenu />}
+          onClick={onOpen}
           variant="ghost"
           position="fixed"
           top="4"
@@ -82,7 +83,10 @@ interface NavItemProps {
 
 const NavItem = ({ icon, title, isOpen, to }: NavItemProps) => {
   const Icon = icon;
+  const location = useLocation();
+  const isActive = location.pathname === to;
   const hoverBg = useColorModeValue('cyan.400', 'cyan.600');
+  const activeBg = useColorModeValue('cyan.500', 'cyan.700');
 
   return (
     <Link to={to}>
@@ -94,6 +98,8 @@ const NavItem = ({ icon, title, isOpen, to }: NavItemProps) => {
         role="group"
         cursor="pointer"
         justify={isOpen ? 'flex-start' : 'center'}
+        bg={isActive ? activeBg : 'transparent'}
+        color={isActive ? 'white' : 'inherit'}
         _hover={{
           bg: hoverBg,
           color: 'white',
