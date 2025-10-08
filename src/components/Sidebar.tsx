@@ -1,7 +1,9 @@
 import { type ElementType } from 'react';
 import { Box, Flex, IconButton, Text, VStack } from '@chakra-ui/react';
-import { FiMenu, FiHome, FiSettings } from 'react-icons/fi';
-import { useColorModeValue } from './ui/color-mode'; // <-- Corrected import path
+import { FiMenu, FiHome, FiSettings, FiUser } from 'react-icons/fi';
+import { useColorModeValue } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
+import Logo from './Logo';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -29,11 +31,7 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
       borderColor={borderColor}
     >
       <Flex h="16" alignItems="center" mx="4" justifyContent="space-between">
-        {isOpen && (
-          <Text fontSize="xl" fontFamily="monospace" fontWeight="bold">
-            Admin
-          </Text>
-        )}
+        {isOpen && <Logo />}
         <IconButton
           aria-label="Toggle Menu"
           icon={<FiMenu />}
@@ -43,8 +41,9 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
       </Flex>
       <nav>
         <VStack gap="2" align="stretch">
-          <NavItem isOpen={isOpen} icon={FiHome} title="Dashboard" />
-          <NavItem isOpen={isOpen} icon={FiSettings} title="Settings" />
+          <NavItem isOpen={isOpen} icon={FiHome} title="Dashboard" to="/" />
+          <NavItem isOpen={isOpen} icon={FiSettings} title="Settings" to="/settings" />
+          <NavItem isOpen={isOpen} icon={FiUser} title="Profile" to="/profile" />
         </VStack>
       </nav>
     </Box>
@@ -55,33 +54,36 @@ interface NavItemProps {
   icon: ElementType;
   title: string;
   isOpen: boolean;
+  to: string;
 }
 
-const NavItem = ({ icon, title, isOpen }: NavItemProps) => {
+const NavItem = ({ icon, title, isOpen, to }: NavItemProps) => {
   const Icon = icon;
-  const hoverBg = useColorModeValue('cyan.400', 'cyan.600'); // Correctly using the hook
+  const hoverBg = useColorModeValue('cyan.400', 'cyan.600');
 
   return (
-    <Flex
-      align="center"
-      p="3"
-      mx="2"
-      borderRadius="lg"
-      role="group"
-      cursor="pointer"
-      justify={isOpen ? 'flex-start' : 'center'}
-      _hover={{
-        bg: hoverBg,
-        color: 'white',
-      }}
-    >
-      {Icon && <Icon size={20} />}
-      {isOpen && (
-        <Text ml="3" fontSize="sm">
-          {title}
-        </Text>
-      )}
-    </Flex>
+    <Link to={to}>
+      <Flex
+        align="center"
+        p="3"
+        mx="2"
+        borderRadius="lg"
+        role="group"
+        cursor="pointer"
+        justify={isOpen ? 'flex-start' : 'center'}
+        _hover={{
+          bg: hoverBg,
+          color: 'white',
+        }}
+      >
+        {Icon && <Icon size={20} />}
+        {isOpen && (
+          <Text ml="3" fontSize="sm">
+            {title}
+          </Text>
+        )}
+      </Flex>
+    </Link>
   );
 };
 
