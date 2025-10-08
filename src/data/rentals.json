@@ -1,0 +1,42 @@
+[
+  {
+    "id": "RENT-001",
+    "peminjam": "Andi Wijaya",
+    "item": "Proyektor InFocus A2",
+    "tglPinjam": "2023-10-26",
+    "tglKembali": "2023-10-28",
+    "status": "Dikembalikan"
+  },
+  {
+    "id": "RENT-002",
+    "peminjam": "Citra Lestari",
+    "item": "Kamera DSLR Canon 80D",
+    "tglPinjam": "2023-10-27",
+    "tglKembali": "2023-11-03",
+    "status": "Dipinjam"
+  },
+  {
+    "id": "RENT-003",
+    "peminjam": "Departemen Marketing",
+    "item": "Speaker Bluetooth JBL",
+    "tglPinjam": "2023-10-25",
+    "tglKembali": "2023-10-26",
+    "status": "Terlambat"
+  },
+  {
+    "id": "RENT-004",
+    "peminjam": "Budi Santoso",
+    "item": "Meja Lipat Portabel",
+    "tglPinjam": "2023-11-01",
+    "tglKembali": "2023-11-05",
+    "status": "Disetujui"
+  },
+  {
+    "id": "RENT-005",
+    "peminjam": "Rina Aulia",
+    "item": "Proyektor InFocus A2",
+    "tglPinjam": "2023-11-02",
+    "tglKembali": "2023-11-04",
+    "status": "Pending"
+  }
+]

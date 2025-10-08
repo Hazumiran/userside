@@ -1,0 +1,26 @@
+[
+  {
+    "id": "WO-001",
+    "item": "Proyektor InFocus A2",
+    "problem": "Lampu proyektor redup, perlu diganti.",
+    "status": "Selesai",
+    "assignedTo": "Tim Teknis",
+    "reportedDate": "2023-10-20"
+  },
+  {
+    "id": "WO-002",
+    "item": "Kamera DSLR Canon 80D",
+    "problem": "Tombol shutter macet.",
+    "status": "Dalam Pengerjaan",
+    "assignedTo": "Budi Santoso",
+    "reportedDate": "2023-10-25"
+  },
+  {
+    "id": "WO-003",
+    "item": "Speaker Bluetooth JBL",
+    "problem": "Baterai tidak mau mengisi daya.",
+    "status": "Terbuka",
+    "assignedTo": "-",
+    "reportedDate": "2023-10-28"
+  }
+]

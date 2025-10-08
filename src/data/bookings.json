@@ -1,0 +1,29 @@
+[
+  {
+    "id": "BOOK-001",
+    "title": "Rapat Tim Marketing",
+    "itemId": 1,
+    "itemName": "Proyektor InFocus A2",
+    "start": "2023-11-10T10:00:00",
+    "end": "2023-11-10T12:00:00",
+    "status": "Confirmed"
+  },
+  {
+    "id": "BOOK-002",
+    "title": "Sesi Foto Produk",
+    "itemId": 2,
+    "itemName": "Kamera DSLR Canon 80D",
+    "start": "2023-11-11T09:00:00",
+    "end": "2023-11-11T17:00:00",
+    "status": "Confirmed"
+  },
+  {
+    "id": "BOOK-003",
+    "title": "Acara Outdoor",
+    "itemId": 4,
+    "itemName": "Speaker Bluetooth JBL",
+    "start": "2023-11-15T18:00:00",
+    "end": "2023-11-15T22:00:00",
+    "status": "Pending"
+  }
+]

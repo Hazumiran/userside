@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Proyektor InFocus A2",
+    "sku": "PROJ-INF-A2-001",
+    "category": "Elektronik",
+    "location": "Gudang A",
+    "condition": "Baik",
+    "stock": { "total": 5, "available": 3, "reserved": 2 }
+  },
+  {
+    "id": 2,
+    "name": "Kamera DSLR Canon 80D",
+    "sku": "CAM-CAN-80D-004",
+    "category": "Fotografi",
+    "location": "Lemari B1",
+    "condition": "Perbaikan",
+    "stock": { "total": 2, "available": 1, "reserved": 1 }
+  },
+  {
+    "id": 3,
+    "name": "Meja Lipat Portabel",
+    "sku": "FURN-TBL-P-012",
+    "category": "Furnitur",
+    "location": "Gudang B",
+    "condition": "Baik",
+    "stock": { "total": 15, "available": 15, "reserved": 0 }
+  },
+  {
+    "id": 4,
+    "name": "Speaker Bluetooth JBL",
+    "sku": "AUDIO-JBL-FL5-031",
+    "category": "Audio",
+    "location": "Gudang A",
+    "condition": "Rusak",
+    "stock": { "total": 1, "available": 0, "reserved": 1 }
+  }
+]

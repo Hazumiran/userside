@@ -10,7 +10,7 @@ import {
   DrawerOverlay,
   useDisclosure,
 } from '@chakra-ui/react';
-import { FiMenu, FiHome, FiSettings, FiUser } from 'react-icons/fi';
+import { FiMenu, FiHome, FiSettings, FiUser, FiArchive, FiSend, FiCalendar, FiTool, FiUsers, FiTruck, FiMap } from 'react-icons/fi'; // Import FiMap
 import { useColorModeValue } from '@chakra-ui/react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
@@ -43,6 +43,13 @@ const Sidebar = ({ isOpen, onToggle, isMobile }: SidebarProps) => {
       <nav>
         <VStack gap="2" align="stretch">
           <NavItem isOpen={isOpen} icon={FiHome} title="Dashboard" to="/" />
+          <NavItem isOpen={isOpen} icon={FiArchive} title="Inventaris" to="/inventory" />
+          <NavItem isOpen={isOpen} icon={FiSend} title="Peminjaman" to="/rentals" />
+          <NavItem isOpen={isOpen} icon={FiCalendar} title="Reservasi" to="/bookings" />
+          <NavItem isOpen={isOpen} icon={FiTool} title="Maintenance" to="/maintenance" />
+          <NavItem isOpen={isOpen} icon={FiUsers} title="Pengguna" to="/users" />
+          <NavItem isOpen={isOpen} icon={FiTruck} title="Supplier" to="/suppliers" />
+          <NavItem isOpen={isOpen} icon={FiMap} title="Lokasi" to="/locations" /> {/* Add new NavItem */}
           <NavItem isOpen={isOpen} icon={FiSettings} title="Settings" to="/settings" />
           <NavItem isOpen={isOpen} icon={FiUser} title="Profile" to="/profile" />
         </VStack>
@@ -55,7 +62,7 @@ const Sidebar = ({ isOpen, onToggle, isMobile }: SidebarProps) => {
       <>
         <IconButton
           aria-label="Open Menu"
-          icon={<FiMenu />}
+          icon={<FiMenu />} 
           onClick={onOpen}
           variant="ghost"
           position="fixed"

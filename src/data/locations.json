@@ -1,0 +1,30 @@
+[
+  {
+    "id": "LOC-001",
+    "name": "Gedung Utama",
+    "type": "Gedung",
+    "parent": "-",
+    "itemCount": 150
+  },
+  {
+    "id": "LOC-002",
+    "name": "Lantai 2",
+    "type": "Lantai",
+    "parent": "Gedung Utama",
+    "itemCount": 75
+  },
+  {
+    "id": "LOC-003",
+    "name": "Ruang Rapat A",
+    "type": "Ruangan",
+    "parent": "Lantai 2",
+    "itemCount": 10
+  },
+  {
+    "id": "LOC-004",
+    "name": "Gudang Logistik",
+    "type": "Gudang",
+    "parent": "-",
+    "itemCount": 300
+  }
+]

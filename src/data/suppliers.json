@@ -1,0 +1,23 @@
+[
+  {
+    "id": "SUP-001",
+    "name": "PT Elektronik Jaya",
+    "contactPerson": "Rina Hartono",
+    "email": "rina.h@elektronikjaya.com",
+    "phone": "081234567890"
+  },
+  {
+    "id": "SUP-002",
+    "name": "CV Perabot Abadi",
+    "contactPerson": "Joko Susilo",
+    "email": "joko@perabotabadi.co.id",
+    "phone": "081122334455"
+  },
+  {
+    "id": "SUP-003",
+    "name": "Toko Kamera Sentosa",
+    "contactPerson": "Dewi Sartika",
+    "email": "sales@kamerasentosa.com",
+    "phone": "021-555-1234"
+  }
+]

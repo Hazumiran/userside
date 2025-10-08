@@ -1,0 +1,29 @@
+[
+  {
+    "id": "USR-001",
+    "name": "Andi Wijaya",
+    "avatarUrl": "https://bit.ly/dan-abramov",
+    "nik": "123456789",
+    "department": "Teknologi Informasi",
+    "role": "Staff",
+    "status": "Aktif"
+  },
+  {
+    "id": "USR-002",
+    "name": "Citra Lestari",
+    "avatarUrl": "https://bit.ly/tioluwani-kolawole",
+    "nik": "987654321",
+    "department": "Marketing",
+    "role": "Manajer",
+    "status": "Aktif"
+  },
+  {
+    "id": "USR-003",
+    "name": "Budi Santoso",
+    "avatarUrl": "https://bit.ly/kent-c-dodds",
+    "nik": "112233445",
+    "department": "Operasional",
+    "role": "Staff",
+    "status": "Blacklisted"
+  }
+]
